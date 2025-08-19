@@ -1,98 +1,115 @@
-
+// Конструктор узла списка
 function Node(val) {
-  this.val = val;
-  this.next = null;
+  this.val = val;   // значение узла
+  this.next = null; // ссылка на следующий узел (по умолчанию null)
 }
+
+// Конструктор связанного списка
 var MyLinkedList = function () {
-  this.head = null;
-  this.size = 0;
+  this.head = null; // голова списка, первый узел
+  this.size = 0;    // количество элементов в списке
 };
 
 /** 
+ * Получение значения узла по индексу
  * @param {number} index
  * @return {number}
  */
 MyLinkedList.prototype.get = function (index) {
+  // Проверка на некорректный индекс
   if (index < 0 || index >= this.size) return -1;
 
+  // Начинаем с головы списка
   let current = this.head;
+
+  // Проходим по списку до нужного индекса
   for (let i = 0; i < index; i++) {
     current = current.next;
   }
+
+  // Возвращаем значение найденного узла
   return current.val;
 };
 
 /** 
+ * Добавление узла в начало списка
  * @param {number} val
  * @return {void}
  */
 MyLinkedList.prototype.addAtHead = function (val) {
-  this.addAtIndex(0, val)
+  // Используем универсальную функцию addAtIndex с индексом 0
+  this.addAtIndex(0, val);
 };
 
 /** 
+ * Добавление узла в конец списка
  * @param {number} val
  * @return {void}
  */
 MyLinkedList.prototype.addAtTail = function (val) {
-  this.addAtIndex(this.size, val)
+  // Используем addAtIndex с индексом, равным текущему размеру списка
+  this.addAtIndex(this.size, val);
 };
 
 /** 
+ * Добавление узла по заданному индексу
  * @param {number} index 
  * @param {number} val
  * @return {void}
  */
 MyLinkedList.prototype.addAtIndex = function (index, val) {
+  // Если индекс некорректный, просто выходим
   if (index < 0 || index > this.size) return;
 
   if (index === 0) {
-    let newNode = new Node(val);
-    newNode.next = this.head;
-    this.head = newNode;
+    // Вставка в голову
+    let newNode = new Node(val);   // создаем новый узел
+    newNode.next = this.head;      // новый узел указывает на старую голову
+    this.head = newNode;           // обновляем голову списка
   } else {
+    // Вставка не в голову
     let current = this.head;
+
+    // Проходим до узла перед нужным индексом
     for (let i = 0; i < index - 1; i++) {
       current = current.next;
     }
+
+    // Создаем новый узел
     let newNode = new Node(val);
-    newNode.next = current.next;
-    current.next = newNode;
+
+    // Новый узел "вставляем" в список
+    newNode.next = current.next;   // новый узел указывает на следующий после current
+    current.next = newNode;        // предыдущий узел теперь указывает на новый
   }
 
+  // Увеличиваем размер списка
   this.size++;
 };
 
 /** 
+ * Удаление узла по индексу
  * @param {number} index
  * @return {void}
  */
 MyLinkedList.prototype.deleteAtIndex = function (index) {
-  if (index < 0 || index >= this.size) return; // проверка индекса
+  // Проверка индекса
+  if (index < 0 || index >= this.size) return;
 
   if (index === 0) {
-    // удаляем голову
+    // Удаление головы списка
     this.head = this.head.next;
   } else {
-    // находим узел перед тем, который удаляем
+    // Находим узел перед тем, который хотим удалить
     let current = this.head;
     for (let i = 0; i < index - 1; i++) {
       current = current.next;
     }
-    // переписываем ссылку, чтобы "выпилить" узел
+
+    // "Перепрыгиваем" через удаляемый узел
     current.next = current.next.next;
   }
 
-  this.size--; // уменьшаем размер списка
+  // Уменьшаем размер списка
+  this.size--;
 };
-
-
-/** 
- * Your MyLinkedList object will be instantiated and called as such:
- * var obj = new MyLinkedList()
- * var param_1 = obj.get(index)
- * obj.addAtHead(val)
- * obj.addAtTail(val)
- * obj.addAtIndex(index,val)
- * obj.deleteAtIndex(index)
- */
