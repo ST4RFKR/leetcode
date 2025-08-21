@@ -12,7 +12,7 @@ var removeElement = function (nums, val) {
       k += 1
     }
   }
-  return k
+  return [k, nums]
 
 };
 console.log(removeElement([3, 2, 2, 3], 3));
