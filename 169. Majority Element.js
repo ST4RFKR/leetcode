@@ -2,17 +2,17 @@
  * @param {number[]} nums
  * @return {number}
  */
-var majorityElement = function (nums) {
-  let counts = new Map();
-  let n = nums.length;
+// var majorityElement = function (nums) {
+//   let counts = new Map();
+//   let n = nums.length;
 
-  for (let num of nums) {
-    counts.set(num, (counts.get(num) || 0) + 1);
-    if (counts.get(num) > Math.floor(n / 2)) {
-      return num;
-    }
-  }
-};
+//   for (let num of nums) {
+//     counts.set(num, (counts.get(num) || 0) + 1);
+//     if (counts.get(num) > Math.floor(n / 2)) {
+//       return num;
+//     }
+//   }
+// };
 var majorityElement = function (nums) {
   let count = 0;
   let candidate = null;
@@ -27,4 +27,4 @@ var majorityElement = function (nums) {
   return candidate;
 };
 
-console.log(majorityElement([1, 1, 1, 2, 2, 3, 3]));
+console.log(majorityElement([1, 1, 1, 1, 1, 2, 2, 2, 2, 2]));
