@@ -15,15 +15,16 @@ var missingNumber = function (nums) {
     return maxSum - sum
 };
 
-var missingNumber2 = function (nums) {
-    const sortNumbers = [...nums].sort((a, b) => a - b)
+// var missingNumber2 = function (nums) {
+//     const sortNumbers = [...nums].sort((a, b) => a - b)
 
 
-    for (let i = 0; i < sortNumbers.length; i++) {
-        if (sortNumbers[i] !== i) {
-            return i
-        }
-    }
-    return nums.length
-};
-console.log(missingNumber2([9, 6, 4, 2, 3, 5, 7, 0, 1]))
+//     for (let i = 0; i < sortNumbers.length; i++) {
+//         if (sortNumbers[i] !== i) {
+//             return i
+//         }
+//     }
+//     return nums.length
+// };
+
+
