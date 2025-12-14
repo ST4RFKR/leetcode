@@ -42,36 +42,6 @@ function promiseAll(promises) {
     });
 }
 
-const all = (promises) => {
-    return new Promise((resolve, rej) => {
-        const result = []
-        let completed = 0;
-
-        if (promises.length === 0) {
-            return res([])
-        }
-
-        if (!Array.isArray(promises)) {
-            throw new Error("Args must be array")
-        }
-
-        promises.forEach((promise, idx) => {
-            Promise.resolve(promise)
-                .then(res => {
-                    result[idx] = res
-                    completed++
-
-                    if (completed === result.length) {
-                        resolve(result)
-                    }
-                })
-                .catch(rej)
-        })
-    })
-
-
-}
-
 
 const allSettled = (promises) => {
     return new Promise((resolve, reject) => {
