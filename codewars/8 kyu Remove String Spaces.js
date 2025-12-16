@@ -5,7 +5,6 @@ function noSpace(x) {
     if (ch !== " ") {
       res.push(ch);
     }
-    continue;
   }
 
   return res.join("");
