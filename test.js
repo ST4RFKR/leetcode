@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //1
 
 const arr = [1, 2, 2, 3, 4, 4, 5];
@@ -45,9 +46,32 @@ function x(a, b) {
     }
 
     return result
+=======
+function deepEqual(a, b) {
+  if (a === b) return true;
 
+  if (
+    typeof a !== "object" ||
+    typeof b !== "object" ||
+    a === null ||
+    b === null
+  )
+    return false;
+
+  let keysA = Object.keys(a);
+  let keysB = Object.keys(b);
+  if (keysA.length !== keysB.length) return false;
+
+  for (const key of keysA) {
+    if (!keysB.includes(key)) return false;
+    if (!deepEqual(a[key], b[key])) return false;
+  }
+>>>>>>> afdee73 (fix)
+
+  return true;
 }
 
+<<<<<<< HEAD
 const data = [
     { category: "fruit", item: "apple" },
     { category: "vegetable", item: "carrot" },
@@ -93,3 +117,7 @@ function xx(nums) {
 }
 console.log(xx(arr1));
 
+=======
+console.log(deepEqual({ a: 1, b: { c: 2 } }, { a: 1, b: { c: 2 } }));
+console.log(deepEqual({ a: 1, b: { c: 2 } }, { a: 1, b: { c: 3 } }));
+>>>>>>> afdee73 (fix)

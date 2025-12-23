@@ -9,5 +9,4 @@ var isPowerOfTwo = function (n) {
         x *= 2
     }
     return x === n
-
 };
