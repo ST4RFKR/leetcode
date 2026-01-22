@@ -4,9 +4,10 @@
  */
 function merge(intervals) {
   if (intervals.length < 2) return intervals;
-  const sortedIntervals = [...intervals].sort((a, b) => a[0] - b[0]);
-  const result = [sortedIntervals[0]];
-  for (const interval of sortedIntervals) {
+
+  intervals.sort((a, b) => a[0] - b[0]);
+  const result = [intervals[0]];
+  for (const interval of intervals) {
     let recent = result[result.length - 1];
 
     if (recent[1] >= interval[0]) {
