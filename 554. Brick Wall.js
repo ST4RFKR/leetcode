@@ -4,7 +4,7 @@
  */
 var leastBricks = function (wall) {
   const map = new Map();
-  let max = [];
+  let max = 0;
 
   for (const row of wall) {
     let current_sum = 0;
