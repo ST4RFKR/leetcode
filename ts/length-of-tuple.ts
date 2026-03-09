@@ -7,7 +7,7 @@ type spaceX = [
   "HUMAN SPACEFLIGHT",
 ];
 // type Length<T extends readonly unknown[]> = T extends [] ? 0 : T['length'] // смысла нет
-type Length<T extends readonly unknown[]> = T["length"];
+type Length<T extends unknown[]> = T["length"];
 
 type teslaLength = Length<tesla>; // expected 4
 type spaceXLength = Length<spaceX>; // expected 5
