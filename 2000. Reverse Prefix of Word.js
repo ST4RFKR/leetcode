@@ -13,7 +13,10 @@ var reversePrefix = function (word, ch) {
   let right = chIdx;
 
   while (left < right) {
-    [arrWord[left], arrWord[right]] = [arrWord[right], arrWord[left]];
+    let temp = arrWord[right];
+    arrWord[right] = arrWord[left];
+    arrWord[left] = temp;
+
     left++;
     right--;
   }
