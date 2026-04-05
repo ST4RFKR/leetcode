@@ -4,22 +4,22 @@
  * @return {string}
  */
 var mergeAlternately = function (word1, word2) {
-  let left = 0;
-  let right = 0;
-  let res = [];
+  let left = 0,
+    right = 0;
+  let result = "";
 
   while (left < word1.length || right < word2.length) {
     debugger;
     if (left < word1.length) {
-      res.push(word1[left]);
+      result += word1[left];
       left++;
     }
     if (right < word2.length) {
-      res.push(word2[right]);
+      result += word2[right];
       right++;
     }
   }
-  return res.join("");
+  return result;
 };
 
 console.log(mergeAlternately("abc", "pqr"));
